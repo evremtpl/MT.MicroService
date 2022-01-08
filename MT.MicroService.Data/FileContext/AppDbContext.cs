@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MT.MicroService.Core.Entity;
+using MT.MicroService.Data.Configurations;
+using MT.MicroService.Data.Seeds;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +23,13 @@ namespace MT.MicroService.Data.FileContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new PersonConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactInfoConfiguration());
+
+            modelBuilder.ApplyConfiguration(new PersonSeed(new int[] {1,2,3 }));
+            modelBuilder.ApplyConfiguration(new ContactInfoSeed(new int[] { 1, 2, 3 }));
+        
         }
     }
 }

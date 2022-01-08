@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MT.Microservis.Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MT.MicroService.Core.Entity
 {
-   public class Person
+   public class Person :EntityBase
     {
         public Person()
         {
