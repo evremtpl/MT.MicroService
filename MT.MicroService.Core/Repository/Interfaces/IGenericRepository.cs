@@ -11,10 +11,10 @@ namespace MT.MicroService.Core.Repository.Interfaces
     {
 
         Task<TEntity> GetByIdAsync(int id);
-        Task <IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
+        IEnumerable<TEntity>Find(Expression<Func<TEntity, bool>> predicate);
 
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task AddAsync(TEntity entity);
-        Task DeleteAsync(TEntity entity);
+        void Delete(TEntity entity);
     }
 }

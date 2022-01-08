@@ -10,10 +10,10 @@ namespace MT.MicroService.Core.Services
    public interface IServices<TEntity> where TEntity :class,new()
     {
         Task<TEntity> GetByIdAsync(int id);
-        Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
+        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task AddAsync(TEntity entity);
-        Task DeleteAsync(TEntity entity);
+        void Delete(TEntity entity);
     }
 }
