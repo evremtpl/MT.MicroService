@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MT.MicroService.Core.Repository.Interfaces
+namespace MT.MicroService.Core.Services
 {
-   public  interface IPersonRepository :IGenericRepository <Person>
+   public interface IPersonService :IServices<Person>
     {
         Task<Person> GetWithContactInfoByPersonIdAsync(int personId);
     }
