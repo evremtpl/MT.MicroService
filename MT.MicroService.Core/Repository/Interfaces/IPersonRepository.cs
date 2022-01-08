@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MT.MicroService.Core.Repository.Interfaces
 {
-    interface IPersonRepository :IGenericRepository <Person>
+   public  interface IPersonRepository :IGenericRepository <Person>
     {
         Task<Person> GetWithContactInfoByPersonIdAsync(int personId);
     }
