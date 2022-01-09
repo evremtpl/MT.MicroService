@@ -21,7 +21,7 @@ namespace MT.MicroService.Services.Person
             using (var scope = host.Services.CreateScope())
             {
                 var appDbcontext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                appDbcontext.Database.Migrate();
+              //  appDbcontext.Database.Migrate();
             }
             host.Run();
 

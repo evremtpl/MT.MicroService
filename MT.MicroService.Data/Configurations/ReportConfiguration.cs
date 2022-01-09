@@ -9,8 +9,8 @@ namespace MT.MicroService.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Report> builder)
         {
-            builder.HasKey(x => x.UUID);
-            builder.Property(x => x.UUID).UseIdentityColumn();
+            builder.HasKey(x => x.id);
+            builder.Property(x => x.id).UseIdentityColumn();
             builder.Property(x => x.ReportState).IsRequired();
             builder.Property(x => x.RequestDate).IsRequired();
            

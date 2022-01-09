@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MT.MicroService.Core.Entity;
 using MT.MicroService.Core.Services;
 using MT.MicroService.Services.Person.Dtos;
 using System;
@@ -15,11 +16,13 @@ namespace MT.MicroService.Services.Person.Controllers
     public class PersonController : ControllerBase
     {
         private readonly IPersonService _personService;
+        private readonly IService<Report> _reportService;
         private readonly IMapper _mapper;
 
-        public PersonController(IPersonService personService, IMapper mapper)
+        public PersonController(IPersonService personService, IService<Report> reportService, IMapper mapper)
         {
             _personService = personService;
+            _reportService = reportService;
             _mapper = mapper;
         }
         [HttpGet]
@@ -62,6 +65,31 @@ namespace MT.MicroService.Services.Person.Controllers
 
             return Ok(_mapper.Map<PersonReadContactInfoDto>(person));
 
+        }
+
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> RaporTalebi(int id) 
+        {
+            var person = _personService.GetByIdAsync(id).Result;
+
+            Report report = new()
+            {
+                UUID=person.UUID,
+                ReportState=FileStatus.Creating,
+                RequestDate=DateTime.Now
+            };
+            var newReport = await _reportService.AddAsync(report);
+
+            ////burada RAbbitmq
+            return Created(String.Empty,newReport);
+
+        }
+        public async Task<IActionResult> RaporlariGetir()
+        {
+            var reports = await _reportService.GetAllAsync();
+
+            return Ok(reports);
         }
     }
 }

@@ -15,6 +15,8 @@ using MT.MicroService.Data;
 using MT.MicroService.Data.Repositories;
 using MT.MicroService.Data.UnitOfWork;
 using MT.MicroService.Service.Services;
+using MT.MicroService.Services.Person.RabbitMQ;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +36,14 @@ namespace MT.MicroService.Services.Person
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(sp => new ConnectionFactory() //buradan bir nesne örneði gelecek
+            {
+                Uri = new Uri(Configuration.GetConnectionString("RabbitMQ"))
+            });
 
+            services.AddSingleton<RabbitMQClientService>();
             services.AddAutoMapper(typeof(Startup));
+            
             services.AddScoped<IUnitOfWork, UnitOfWork>(); //bir request enasýnda birden fazla ihtiyaç olursa ayný nesne örneðini kullanýr.
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));

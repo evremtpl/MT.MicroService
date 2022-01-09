@@ -6,14 +6,20 @@ using System.Threading.Tasks;
 
 namespace MT.MicroService.Core.Entity
 {
+
+    public enum FileStatus
+    {
+        Creating,
+        Completed
+    }
     public class Report
     {
-
+        public int id { get; set; }
         public int UUID { get; set; }
       
         public DateTime RequestDate { get; set; }
 
-        public int ReportState { get; set; }
+        public FileStatus ReportState { get; set; }
 
     }
 }
