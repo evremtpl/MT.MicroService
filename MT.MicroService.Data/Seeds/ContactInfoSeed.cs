@@ -26,7 +26,7 @@ namespace MT.MicroService.Data.Seeds
                 id = 1,
                 PhoneNumber = "05554443231",
                 Email = "xyz@any.com",
-                Location = "Ankara",
+                Location = "istanbul",
                 UUID = _ids[0]
             },
             new ContactInfo

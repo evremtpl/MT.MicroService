@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MT.MicroService.Core\MT.MicroService.Core.csproj" />
     <ProjectReference Include="..\MT.MicroService.Data\MT.MicroService.Data.csproj" />
+    <ProjectReference Include="..\MT.MicroService.Service\MT.MicroService.Service.csproj" />
   </ItemGroup>
 
 </Project>

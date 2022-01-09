@@ -40,7 +40,7 @@ namespace MT.MicroService.Services.Person
             {
                 Uri = new Uri(Configuration.GetConnectionString("RabbitMQ"))
             });
-
+            services.AddSingleton<RabbitMQPublisher>();
             services.AddSingleton<RabbitMQClientService>();
             services.AddAutoMapper(typeof(Startup));
             

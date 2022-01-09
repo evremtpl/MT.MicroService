@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using MT.MicroService.Core.Entity;
 using MT.MicroService.Core.Services;
 using MT.MicroService.Services.Person.Dtos;
+using MT.MicroService.Services.Person.RabbitMQ;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,14 @@ namespace MT.MicroService.Services.Person.Controllers
         private readonly IPersonService _personService;
         private readonly IService<Report> _reportService;
         private readonly IMapper _mapper;
-
-        public PersonController(IPersonService personService, IService<Report> reportService, IMapper mapper)
+        private readonly RabbitMQPublisher _rabbitMQPublisher; 
+        public PersonController(IPersonService personService, IService<Report> reportService, IMapper mapper,
+            RabbitMQPublisher rabbitMQPublisher)
         {
             _personService = personService;
             _reportService = reportService;
             _mapper = mapper;
+            _rabbitMQPublisher = rabbitMQPublisher;
         }
         [HttpGet]
         public async Task<IActionResult> KisileriListele()
@@ -82,6 +85,12 @@ namespace MT.MicroService.Services.Person.Controllers
             var newReport = await _reportService.AddAsync(report);
 
             ////burada RAbbitmq
+            ///
+            _rabbitMQPublisher.Publish(new CreateFileMessage
+            {
+                FileId = report.id,
+                UserId = report.UUID
+            });
             return Created(String.Empty,newReport);
 
         }
