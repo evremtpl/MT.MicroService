@@ -1,4 +1,4 @@
-﻿using MT.Microservis.Entities.Abstract;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace MT.MicroService.Core.Entity
 {
-   public class Person :EntityBase
+   public class Person 
     {
         public Person()
         {
             ContactInfos = new Collection<ContactInfo>();
         }
+        
+        public int UUID { get; set; }
         public string Name { get; set; }
 
         public string SurName { get; set; }

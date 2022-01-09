@@ -13,13 +13,13 @@ namespace MT.MicroService.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<ContactInfo> builder)
         {
-            builder.HasKey(x => x.UUID);
-            builder.Property(x => x.UUID).UseIdentityColumn();
+            builder.HasKey(x => x.id);
+            builder.Property(x => x.id).UseIdentityColumn();
             builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(200);
             builder.Property(x => x.Email).IsRequired().HasMaxLength(50);
             builder.Property(x => x.Location).IsRequired().HasMaxLength(200);
-            builder.HasOne<Person>(x => x.Person).WithMany(p => p.ContactInfos).HasForeignKey(c => c.PersonId);
-            builder.ToTable("ContactInfos");
+            builder.HasOne<Person>(x => x.Person).WithMany(p => p.ContactInfos).HasForeignKey(c => c.UUID);
+            //builder.ToTable("ContactInfos");
         }
     }
 }

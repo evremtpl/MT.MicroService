@@ -23,19 +23,19 @@ namespace MT.MicroService.Data.Seeds
         {
             builder.HasData(new ContactInfo
             {
-                UUID = 1,
+                id = 1,
                 PhoneNumber = "05554443231",
                 Email = "xyz@any.com",
                 Location = "Ankara",
-                PersonId = _ids[0]
+                UUID = _ids[0]
             },
             new ContactInfo
             {
-                UUID = 2,
+                id = 2,
                 PhoneNumber = "05554443231",
                 Email = "xyz@any.com",
                 Location = "Ankara",
-                PersonId = _ids[0]
+                UUID = _ids[0]
             });
         }
     }

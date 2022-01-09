@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace MT.MicroService.Data.FileContext
 {
-    class AppDbContext :DbContext
+   public class AppDbContext :DbContext
     {
         public AppDbContext( DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }
 
-        public DbSet<Person>  Persons { get; set; }
+        public DbSet<Person>  Personss { get; set; }
 
-        public DbSet<ContactInfo> ContactInfos { get; set; }
+        public DbSet<ContactInfo> ContactInfoss { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,8 +27,8 @@ namespace MT.MicroService.Data.FileContext
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new ContactInfoConfiguration());
 
-            modelBuilder.ApplyConfiguration(new PersonSeed(new int[] {1,2,3 }));
-            modelBuilder.ApplyConfiguration(new ContactInfoSeed(new int[] { 1, 2, 3 }));
+            //modelBuilder.ApplyConfiguration(new PersonSeed(new int[] {1,2,3 }));
+            //modelBuilder.ApplyConfiguration(new ContactInfoSeed(new int[] { 1, 2, 3 }));
         
         }
     }

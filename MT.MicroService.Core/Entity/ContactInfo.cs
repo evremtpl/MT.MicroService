@@ -1,4 +1,4 @@
-﻿using MT.Microservis.Entities.Abstract;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace MT.MicroService.Core.Entity
 {
-    public class ContactInfo : EntityBase
+    public class ContactInfo
     {
+        public int id { get; set; }
         public string PhoneNumber { get; set; }
 
         public string Email { get; set; }
         public string Location { get; set; }
-        public int PersonId { get; set; }
+        public int UUID { get; set; }
         public virtual Person Person { get; set; }
     }
 }

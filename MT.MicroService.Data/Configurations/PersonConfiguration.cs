@@ -18,7 +18,7 @@ namespace MT.MicroService.Data.Configurations
             builder.Property(x => x.Name).IsRequired().HasMaxLength(200);
             builder.Property(x=>x.SurName).IsRequired().HasMaxLength(200);
             builder.Property(x => x.Company).IsRequired().HasMaxLength(200);
-            builder.ToTable("Persons");
+          //  builder.ToTable("Persons");
         }
     }
 }
