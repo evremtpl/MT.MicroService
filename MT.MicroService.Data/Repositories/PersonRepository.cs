@@ -18,7 +18,7 @@ namespace MT.MicroService.Data.Repositories
         }
         public  async Task<Person> GetWithContactInfoByPersonIdAsync(int personId)
         {
-            return await _appDbContext.Personss.Include(x => x.ContactInfos).SingleOrDefaultAsync(x => x.UUID == personId);
+            return await _appDbContext.Persons.Include(x => x.ContactInfos).SingleOrDefaultAsync(x => x.UUID == personId);
         }
     }
 }

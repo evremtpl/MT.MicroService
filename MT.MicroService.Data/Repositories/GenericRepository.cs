@@ -30,9 +30,9 @@ namespace MT.MicroService.Data.Repositories
             _dbSet.Remove(entity);
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            return _dbSet.Where(predicate);
+            return await _dbSet.Where(predicate).ToListAsync();
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()

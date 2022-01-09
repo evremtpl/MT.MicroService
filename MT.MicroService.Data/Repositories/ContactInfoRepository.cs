@@ -20,7 +20,7 @@ namespace MT.MicroService.Data.Repositories
 
         public async Task<ContactInfo> GetWithPersonByIdAsync(int id)
         {
-            return await  _appDbContext.ContactInfoss.Include(x => x.Person).SingleOrDefaultAsync(x => x.id == id);
+            return await  _appDbContext.ContactInfos.Include(x => x.Person).SingleOrDefaultAsync(x => x.id == id);
         }
     }
 }

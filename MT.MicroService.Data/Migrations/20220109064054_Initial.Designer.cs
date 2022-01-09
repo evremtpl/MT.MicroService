@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MT.MicroService.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220108203127_Initial")]
+    [Migration("20220109064054_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,7 +49,7 @@ namespace MT.MicroService.Data.Migrations
 
                     b.HasIndex("UUID");
 
-                    b.ToTable("ContactInfoss");
+                    b.ToTable("ContactInfos");
                 });
 
             modelBuilder.Entity("MT.MicroService.Core.Entity.Person", b =>
@@ -76,7 +76,7 @@ namespace MT.MicroService.Data.Migrations
 
                     b.HasKey("UUID");
 
-                    b.ToTable("Personss");
+                    b.ToTable("Persons");
                 });
 
             modelBuilder.Entity("MT.MicroService.Core.Entity.ContactInfo", b =>

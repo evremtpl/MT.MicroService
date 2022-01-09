@@ -17,9 +17,9 @@ namespace MT.MicroService.Data.FileContext
 
         }
 
-        public DbSet<Person>  Personss { get; set; }
+        public DbSet<Person>  Persons { get; set; }
 
-        public DbSet<ContactInfo> ContactInfoss { get; set; }
+        public DbSet<ContactInfo> ContactInfos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -8,7 +8,7 @@ namespace MT.MicroService.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Personss",
+                name: "Persons",
                 columns: table => new
                 {
                     UUID = table.Column<int>(type: "integer", nullable: false)
@@ -19,11 +19,11 @@ namespace MT.MicroService.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Personss", x => x.UUID);
+                    table.PrimaryKey("PK_Persons", x => x.UUID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ContactInfoss",
+                name: "ContactInfos",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "integer", nullable: false)
@@ -35,28 +35,28 @@ namespace MT.MicroService.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ContactInfoss", x => x.id);
+                    table.PrimaryKey("PK_ContactInfos", x => x.id);
                     table.ForeignKey(
-                        name: "FK_ContactInfoss_Personss_UUID",
+                        name: "FK_ContactInfos_Persons_UUID",
                         column: x => x.UUID,
-                        principalTable: "Personss",
+                        principalTable: "Persons",
                         principalColumn: "UUID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ContactInfoss_UUID",
-                table: "ContactInfoss",
+                name: "IX_ContactInfos_UUID",
+                table: "ContactInfos",
                 column: "UUID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ContactInfoss");
+                name: "ContactInfos");
 
             migrationBuilder.DropTable(
-                name: "Personss");
+                name: "Persons");
         }
     }
 }

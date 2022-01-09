@@ -11,7 +11,7 @@ namespace MT.MicroService.Core.Repository.Interfaces
     {
 
         Task<TEntity> GetByIdAsync(int id);
-        IEnumerable<TEntity>Find(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>>Find(Expression<Func<TEntity, bool>> predicate);
 
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task AddAsync(TEntity entity);

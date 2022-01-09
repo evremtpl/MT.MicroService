@@ -47,7 +47,7 @@ namespace MT.MicroService.Data.Migrations
 
                     b.HasIndex("UUID");
 
-                    b.ToTable("ContactInfoss");
+                    b.ToTable("ContactInfos");
                 });
 
             modelBuilder.Entity("MT.MicroService.Core.Entity.Person", b =>
@@ -74,7 +74,7 @@ namespace MT.MicroService.Data.Migrations
 
                     b.HasKey("UUID");
 
-                    b.ToTable("Personss");
+                    b.ToTable("Persons");
                 });
 
             modelBuilder.Entity("MT.MicroService.Core.Entity.ContactInfo", b =>
