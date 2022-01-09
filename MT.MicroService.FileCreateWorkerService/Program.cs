@@ -1,5 +1,8 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MT.MicroService.FileCreateWorkerService.Service;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +21,12 @@ namespace MT.MicroService.FileCreateWorkerService
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    IConfiguration Configuration = hostContext.Configuration;
+                    services.AddSingleton<RabbitMQClientService>();
+                    services.AddSingleton(sp => new ConnectionFactory() //buradan bir nesne örneði gelecek
+                    {
+                        Uri = new Uri(Configuration.GetConnectionString("RabbitMQ"))
+                    });
                     services.AddHostedService<Worker>();
                 });
     }
