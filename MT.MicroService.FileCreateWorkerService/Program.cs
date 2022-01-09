@@ -1,6 +1,8 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MT.MicroService.FileCreateWorkerService.Models;
 using MT.MicroService.FileCreateWorkerService.Service;
 using RabbitMQ.Client;
 using System;
@@ -22,6 +24,10 @@ namespace MT.MicroService.FileCreateWorkerService
                 .ConfigureServices((hostContext, services) =>
                 {
                     IConfiguration Configuration = hostContext.Configuration;
+                    services.AddDbContext<PhoneBookReportContext>(opt =>
+                    {
+                        opt.UseNpgsql(Configuration.GetConnectionString("WorkerCnnStr"));
+                    });
                     services.AddSingleton<RabbitMQClientService>();
                     services.AddSingleton(sp => new ConnectionFactory() //buradan bir nesne örneði gelecek
                     {
