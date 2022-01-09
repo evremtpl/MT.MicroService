@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MT.MicroService.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +16,17 @@ namespace MT.MicroService.Services.Person
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+           var host= CreateHostBuilder(args).Build();
+
+            using (var scope = host.Services.CreateScope())
+            {
+                var appDbcontext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+              appDbcontext.Database.Migrate();
+            }
+            host.Run();
+
         }
+
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)

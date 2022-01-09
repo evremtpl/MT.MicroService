@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MT.MicroService.Core\MT.MicroService.Core.csproj" />
+  </ItemGroup>
+
 </Project>

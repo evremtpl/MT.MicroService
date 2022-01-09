@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MT.MicroService.Core.Services
 {
-   public interface IPersonService :IServices<Person>
+   public interface IPersonService :IService<Person>
     {
         Task<Person> GetWithContactInfoByPersonIdAsync(int personId);
     }
