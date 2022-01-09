@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MT.MicroService.Data.FileContext
+namespace MT.MicroService.Data
 {
    public class AppDbContext :DbContext
     {

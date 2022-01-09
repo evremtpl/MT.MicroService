@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MT.MicroService.Core.Repository.Interfaces;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace MT.MicroService.Data.Repositories
         protected readonly DbContext _context;
         private readonly DbSet<TEntity> _dbSet;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository(AppDbContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();

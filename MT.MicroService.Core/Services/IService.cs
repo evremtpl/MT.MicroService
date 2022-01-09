@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MT.MicroService.Core.Services
 {
-   public interface IServices<TEntity> where TEntity :class,new()
+   public interface IService<TEntity> where TEntity :class,new()
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);

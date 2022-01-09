@@ -1,11 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MT.MicroService.Core.Entity;
 using MT.MicroService.Core.Repository.Interfaces;
-using MT.MicroService.Data.FileContext;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 using System.Threading.Tasks;
 
 namespace MT.MicroService.Data.Repositories
@@ -14,7 +10,7 @@ namespace MT.MicroService.Data.Repositories
     {
 
         private AppDbContext _appDbContext { get => _context as AppDbContext; }
-        public ContactInfoRepository(DbContext context) : base(context)
+        public ContactInfoRepository(AppDbContext context) : base(context)
         {
         }
 

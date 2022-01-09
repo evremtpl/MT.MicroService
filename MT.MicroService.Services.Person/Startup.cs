@@ -7,9 +7,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MT.MicroService.Core.Repository.Interfaces;
+using MT.MicroService.Core.Services;
 using MT.MicroService.Core.UnitOfWork;
-using MT.MicroService.Data.FileContext;
+using MT.MicroService.Data;
+using MT.MicroService.Data.Repositories;
 using MT.MicroService.Data.UnitOfWork;
+using MT.MicroService.Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,15 +33,17 @@ namespace MT.MicroService.Services.Person
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UnitOfWork>(); //bir request enasýnda birden fazla ihtiyaç olursa ayný nesne örneðini kullanýr.
 
-
-
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped(typeof(IService<>), typeof(Service<>));
+            services.AddScoped<IContactInfoService, ContactInfoService>();
+            services.AddScoped<IPersonService, PersonService>();
 
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("NpgConStr"),o=>o.MigrationsAssembly("MT.MicroService.Data")));
             services.AddScoped<DbContext>(provider => provider.GetRequiredService < AppDbContext>());
             
-            services.AddScoped<IUnitOfWork, UnitOfWork>(); //bir request enasýnda birden fazla ihtiyaç olursa ayný nesne örneðini kullanýr
-
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
