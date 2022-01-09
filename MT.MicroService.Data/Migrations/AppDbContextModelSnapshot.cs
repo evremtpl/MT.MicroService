@@ -52,6 +52,24 @@ namespace MT.MicroService.Data.Migrations
                     b.HasIndex("PersonUUID");
 
                     b.ToTable("ContactInfos");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            Email = "xyz@any.com",
+                            Location = "Ankara",
+                            PhoneNumber = "05554443231",
+                            UUID = 1
+                        },
+                        new
+                        {
+                            id = 2,
+                            Email = "xyz@any.com",
+                            Location = "Ankara",
+                            PhoneNumber = "05554443231",
+                            UUID = 1
+                        });
                 });
 
             modelBuilder.Entity("MT.MicroService.Core.Entity.Person", b =>
@@ -79,6 +97,33 @@ namespace MT.MicroService.Data.Migrations
                     b.HasKey("UUID");
 
                     b.ToTable("Persons");
+
+                    b.HasData(
+                        new
+                        {
+                            UUID = 1,
+                            Company = "xyz",
+                            Name = "Demir",
+                            SurName = "Çelik"
+                        });
+                });
+
+            modelBuilder.Entity("MT.MicroService.Core.Entity.Report", b =>
+                {
+                    b.Property<int>("UUID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("ReportState")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("RequestDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("UUID");
+
+                    b.ToTable("Reports");
                 });
 
             modelBuilder.Entity("MT.MicroService.Core.Entity.ContactInfo", b =>

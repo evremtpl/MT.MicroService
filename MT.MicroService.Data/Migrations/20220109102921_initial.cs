@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MT.MicroService.Data.Migrations
@@ -20,6 +21,20 @@ namespace MT.MicroService.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Persons", x => x.UUID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reports",
+                columns: table => new
+                {
+                    UUID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    RequestDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    ReportState = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reports", x => x.UUID);
                 });
 
             migrationBuilder.CreateTable(
@@ -45,6 +60,20 @@ namespace MT.MicroService.Data.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.InsertData(
+                table: "ContactInfos",
+                columns: new[] { "id", "Email", "Location", "PersonUUID", "PhoneNumber", "UUID" },
+                values: new object[,]
+                {
+                    { 1, "xyz@any.com", "Ankara", null, "05554443231", 1 },
+                    { 2, "xyz@any.com", "Ankara", null, "05554443231", 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Persons",
+                columns: new[] { "UUID", "Company", "Name", "SurName" },
+                values: new object[] { 1, "xyz", "Demir", "Çelik" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_ContactInfos_PersonUUID",
                 table: "ContactInfos",
@@ -55,6 +84,9 @@ namespace MT.MicroService.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "ContactInfos");
+
+            migrationBuilder.DropTable(
+                name: "Reports");
 
             migrationBuilder.DropTable(
                 name: "Persons");
