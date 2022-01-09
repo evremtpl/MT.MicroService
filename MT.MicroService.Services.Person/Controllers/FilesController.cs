@@ -4,9 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using MT.MicroService.Core.Entity;
 using MT.MicroService.Data;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MT.MicroService.Services.Person.Controllers
@@ -32,12 +30,12 @@ namespace MT.MicroService.Services.Person.Controllers
             using FileStream stream = new FileStream(path, FileMode.Create);
 
             await file.CopyToAsync(stream);
-            userFile.CreatedDate = DateTime.Now;
+            //userFile.createddate = DateTime.Now;
             userFile.ReportState = FileStatus.Completed;
-
+             
             await _appDbContext.SaveChangesAsync();
 
-            return Ok();
+            return Ok(userFile);
         }
     }
 }

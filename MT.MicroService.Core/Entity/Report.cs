@@ -18,7 +18,7 @@ namespace MT.MicroService.Core.Entity
         public int UUID { get; set; }
       
         public DateTime RequestDate { get; set; }
-        public DateTime CreatedDate { get; set; }
+    
 
         public FileStatus ReportState { get; set; }
 

@@ -21,4 +21,8 @@
     <ProjectReference Include="..\MT.MicroService.Service\MT.MicroService.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

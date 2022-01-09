@@ -78,9 +78,10 @@ namespace MT.MicroService.Services.Person.Controllers
 
             Report report = new()
             {
-                UUID=person.UUID,
-                ReportState=FileStatus.Creating,
-                RequestDate=DateTime.Now
+                UUID = person.UUID,
+                ReportState = FileStatus.Creating,
+                RequestDate = DateTime.Now,
+               
             };
             var newReport = await _reportService.AddAsync(report);
 
