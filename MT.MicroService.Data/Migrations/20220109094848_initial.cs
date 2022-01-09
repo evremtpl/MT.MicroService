@@ -31,23 +31,24 @@ namespace MT.MicroService.Data.Migrations
                     PhoneNumber = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
                     Email = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     Location = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
-                    UUID = table.Column<int>(type: "integer", nullable: false)
+                    UUID = table.Column<int>(type: "integer", nullable: false),
+                    PersonUUID = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ContactInfos", x => x.id);
                     table.ForeignKey(
-                        name: "FK_ContactInfos_Persons_UUID",
-                        column: x => x.UUID,
+                        name: "FK_ContactInfos_Persons_PersonUUID",
+                        column: x => x.PersonUUID,
                         principalTable: "Persons",
                         principalColumn: "UUID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ContactInfos_UUID",
+                name: "IX_ContactInfos_PersonUUID",
                 table: "ContactInfos",
-                column: "UUID");
+                column: "PersonUUID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
