@@ -21,7 +21,7 @@ FileCreateWorkerServis ayaða kalktýðýnda -bu bir worker service- bu talepleri ku
 raporu proje altýnda wwwroot klasörüne kaydeder. Ack bilgisini kuyruða gönderir.
 Raporstate i tamamlandýya çeker.    
 
-Projede bulunan endpointler aþaðýda verilmiþtir. Hata mekanizmasý, kod tekrarýný önlemek temiz kod yazýmýný saðlamk adýna
+Projede bulunan endpointler aþaðýda verilmiþtir. Hata mekanizmasý, kod tekrarýný önlemek temiz kod yazýmýný saðlamak adýna
 filterlar eklenilmesi gerektiðinin farkýnda olunup, süre kýsýtýndan dolayý eklenememiþtir.
 
 Servislerin güvenliði açýsýndan bir token mekanýzmasý (JWT) süre nedeniyle eklenememiþtir.
