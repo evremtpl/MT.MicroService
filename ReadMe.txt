@@ -12,7 +12,7 @@ Proje NLayerArchitecture olarak geliþtirilip, SOLID e uygun kodlama yapýlmýþtýr.
 Kiþi ile ilgili iþlemleri yapan ve rapor talebinde bulunan person servistir.
 Kestrelde 5002 portundan ayaða kalkmaktadýr.Ports.txt dokümanýnda belirtilmiþtir.
 Projenin migration yapýsý code first olarak geliþtirilmiþ, person servis ayaða kalktýðýnda db oluþacaktýr.
-Db connection stringi Person servis appsettings.json dosyasýndan okunmakta olup, buranýn tarafýnýzca düzenlenmesi gerekmektedir.
+Db connection stringi Person servis appsettings.json dosyasýndan okunmakta olup, burasýnýn tarafýnýzca düzenlenmesi gerekmektedir.
 Ayrýca RabbitMQ cloud conn stringi yine appsettings.json dosyasýnda yer almaktadýr.
 
 Person servis kiþi ile ilgili endpointlerinin yaný sýra kullanýcý tarafýndan rapor talebinde bulunduðunda,
