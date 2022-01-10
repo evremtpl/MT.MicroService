@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{621D08B0-47F1-4595-B026-4450604236F4}"
 	ProjectSection(SolutionItems) = preProject
 		Ports.txt = Ports.txt
+		ReadMe.txt = ReadMe.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.MicroService.Core", "MT.MicroService.Core\MT.MicroService.Core.csproj", "{31E524CB-EB3B-46D8-A2EE-DAFD06CBDDA8}"
@@ -18,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.MicroService.Data", "MT.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.MicroService.Service", "MT.MicroService.Service\MT.MicroService.Service.csproj", "{763E31E2-CDE1-4EAB-A0A4-BD0DDFCDD133}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.MicroService.FileCreateWorkerService", "MT.MicroService.FileCreateWorkerService\MT.MicroService.FileCreateWorkerService.csproj", "{17ABC167-2544-465B-93F9-321D69F17610}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.MicroService.FileCreateWorkerService", "MT.MicroService.FileCreateWorkerService\MT.MicroService.FileCreateWorkerService.csproj", "{17ABC167-2544-465B-93F9-321D69F17610}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
