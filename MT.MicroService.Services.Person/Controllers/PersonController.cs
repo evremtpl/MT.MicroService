@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MT.MicroService.Services.Person.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]/[action]")] // best practise açısından method ismi verilmemeli, ancak bu proje için uygulanmıştır.
     [ApiController]
     public class PersonController : ControllerBase
     {
@@ -52,7 +52,7 @@ namespace MT.MicroService.Services.Person.Controllers
 
         }
 
-        [HttpDelete]
+        [HttpDelete ("{id}")]
         public  IActionResult KisiKaldir(int id) // exception mekanizması ele alınmadı.
         {
             var person = _personService.GetByIdAsync(id).Result;
@@ -95,6 +95,7 @@ namespace MT.MicroService.Services.Person.Controllers
             return Created(String.Empty,newReport);
 
         }
+        [HttpGet]
         public async Task<IActionResult> RaporlariGetir()
         {
             var reports = await _reportService.GetAllAsync();
