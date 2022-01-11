@@ -16,7 +16,7 @@ namespace MT.MicroService.Data
         {
 
         }
-        public DbSet<Report> Reports { get; set; }
+      
         public DbSet<Person>  Persons { get; set; }
 
         public DbSet<ContactInfo> ContactInfos { get; set; }
