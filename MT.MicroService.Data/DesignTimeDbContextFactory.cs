@@ -15,7 +15,7 @@ namespace MT.MicroService.Data
         public AppDbContext CreateDbContext(string[] args)
         {
             var builder = new DbContextOptionsBuilder<AppDbContext>();
-            var connectionString = " Server = localhost; Port = 5432; Database = PhoneBook2; User Id = postgres; Password = 123456; ";
+            var connectionString = " Server = localhost; Port = 5432; Database = PersonBook; User Id = postgres; Password = 123456; ";
             builder.UseNpgsql(connectionString);
             return new AppDbContext(builder.Options);
         }

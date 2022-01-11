@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MT.ReportService.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220111085305_ReportDb")]
-    partial class ReportDb
+    [Migration("20220111184505_qq")]
+    partial class qq
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
