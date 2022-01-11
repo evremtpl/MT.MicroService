@@ -17,8 +17,8 @@ Rapor taleplerinde bütün rapor gönderilmeyip id si gönderilerek network yükü aza
 Person servis ayaða kalktýðýnda queue daki talepleri alarak rapor oluþturur ve report servise geri bildirimde bulunur.
 
 Servisler Kestrelde 5002 ve 5003 portundan ayaða kalkmaktadýr.Ports.txt dokümanýnda belirtilmiþtir.
-Projenin migration yapýsý code first olarak geliþtirilmiþ, person servis ayaða kalktýðýnda db oluþacaktýr.
-Db connection stringi servislerin appsettings.json dosyalarýndan ve DesignTimeDbContextFactory class ýndan okunmakta olup, ilgili bölümün tarafýnýzca düzenlenmesi gerekmektedir.
+Projenin migration yapýsý code first olarak geliþtirilmiþ, person ve  report  servisler ayaða kalktýðýnda db ler oluþacaktýr.
+Db connection stringi servislerin appsettings.json dosyalarýndan ve DesignTimeDbContextFactory class ýndan okunmakta olup, ilgili bölümlerin iki servis için de tarafýnýzca düzenlenmesi gerekmektedir.
 Ayrýca RabbitMQ cloud conn stringi yine appsettings.json dosyasýnda yer almaktadýr.
     
 
