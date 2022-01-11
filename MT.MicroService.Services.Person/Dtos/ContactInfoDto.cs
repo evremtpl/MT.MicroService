@@ -7,7 +7,7 @@ namespace MT.MicroService.Services.Person.Dtos
 {
     public class ContactInfoDto
     {
-        public int id { get; set; }
+       
         public string PhoneNumber { get; set; }
 
         public string Email { get; set; }

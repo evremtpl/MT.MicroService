@@ -21,14 +21,14 @@ namespace MT.MicroService.Services.Person.RabbitMQ
         public void Publish(CreateFileMessage createFileMessage )
 
         {
-            var channel = _rabbitMQClientService.Connect();
-            var bodyString = JsonSerializer.Serialize(createFileMessage);
-            var bodyByte = Encoding.UTF8.GetBytes(bodyString);
-            var properties = channel.CreateBasicProperties();
-            properties.Persistent = true;
+            //var channel = _rabbitMQClientService.Connect();
+            //var bodyString = JsonSerializer.Serialize(createFileMessage);
+            //var bodyByte = Encoding.UTF8.GetBytes(bodyString);
+            //var properties = channel.CreateBasicProperties();
+            //properties.Persistent = true;
 
-            channel.BasicPublish(exchange: RabbitMQClientService.ExchangeName, routingKey: RabbitMQClientService.RoutingFile,
-                basicProperties: properties, body: bodyByte);
+            //channel.BasicPublish(exchange: RabbitMQClientService.ExchangeName, routingKey: RabbitMQClientService.RoutingFile,
+            //    basicProperties: properties, body: bodyByte);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace MT.MicroService.Services.Person.Dtos
 {
     public class PersonDto
     {
-        public int UUID { get; set; }
+        
         [Required] //FluentValidation Kullanılabilir.
         public string Name { get; set; }
         [Required]

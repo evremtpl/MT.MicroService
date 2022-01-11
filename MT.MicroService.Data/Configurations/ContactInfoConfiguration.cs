@@ -18,7 +18,7 @@ namespace MT.MicroService.Data.Configurations
             builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(200);
             builder.Property(x => x.Email).IsRequired().HasMaxLength(50);
             builder.Property(x => x.Location).IsRequired().HasMaxLength(200);
-            //builder.HasOne<Person>(x => x.Person).WithMany(p => p.ContactInfos).HasForeignKey(c => c.UUID);
+            builder.HasOne<Person>(x => x.Person).WithMany(p => p.ContactInfos).HasForeignKey(c => c.UUID);
             builder.ToTable("ContactInfos");
         }
     }

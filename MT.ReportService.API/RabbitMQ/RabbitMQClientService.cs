@@ -3,7 +3,7 @@ using RabbitMQ.Client;
 using System;
 
 
-namespace MT.MicroService.Services.Person.RabbitMQ
+namespace MT.ReportService.API.RabbitMQ
 {
     public class RabbitMQClientService :IDisposable
     {
@@ -12,7 +12,8 @@ namespace MT.MicroService.Services.Person.RabbitMQ
         private IConnection _connection;
         private IModel _channel;
 
-        
+        public static string ExchangeName = "FileCreateExchange";
+        public static string RoutingFile = "file-route";
         public static string QueueName = "queue-file";
 
         private readonly ILogger<RabbitMQClientService> _logger;
@@ -29,7 +30,10 @@ namespace MT.MicroService.Services.Person.RabbitMQ
             if (_channel is { IsOpen: true }) return _channel;
             _channel = _connection.CreateModel();
 
-        
+            _channel.ExchangeDeclare(ExchangeName, type: "direct", true, false);//RabbitMQ ya bişet olursa restart edildiğinde kaybolmayacak.
+            _channel.QueueDeclare(QueueName, true, false, false, null);
+
+            _channel.QueueBind(exchange: ExchangeName, queue: QueueName, routingKey: RoutingFile);
 
             _logger.LogInformation("RabbitMQ ile bağlantı kuruldu.");
 
