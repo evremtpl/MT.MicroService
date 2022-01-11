@@ -15,6 +15,7 @@ Rapor talebi ve rapor getirme iþlemleri için report servis call edilmelidir.
 Talep edilen raporlar rapor servis tarafýndan message broker a gönderilir.
 Rapor taleplerinde bütün rapor gönderilmeyip id si gönderilerek network yükü azaltýlmýþtýr.
 Person servis ayaða kalktýðýnda queue daki talepleri alarak rapor oluþturur ve report servise geri bildirimde bulunur.
+Oluþturulan raporlar report servis wwwroot/files dizinine kaydedilir.
 
 Servisler Kestrelde 5002 ve 5003 portundan ayaða kalkmaktadýr.Ports.txt dokümanýnda belirtilmiþtir.
 Projenin migration yapýsý code first olarak geliþtirilmiþ, person ve  report  servisler ayaða kalktýðýnda db ler oluþacaktýr.
