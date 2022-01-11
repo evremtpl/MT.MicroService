@@ -54,7 +54,7 @@ namespace MT.ReportService.API
             services.AddScoped(typeof(IService<>), typeof(Service<>));
             
 
-            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("NpgConStr"), o => o.MigrationsAssembly("MT.MicroService.Data")));
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("NpgConStr"), o => o.MigrationsAssembly("MT.ReportService.Data")));
            // services.AddScoped<DbContext>(provider => provider.GetRequiredService<AppDbContext>());
 
 

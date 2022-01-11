@@ -9,8 +9,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MT.MicroService.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220111142903_aa")]
-    partial class aa
+    [Migration("20220111184005_qq")]
+    partial class qq
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

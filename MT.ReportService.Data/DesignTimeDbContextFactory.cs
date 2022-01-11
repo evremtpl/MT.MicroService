@@ -10,7 +10,7 @@ namespace MT.ReportService.Data
         public AppDbContext CreateDbContext(string[] args)
         {
             var builder = new DbContextOptionsBuilder<AppDbContext>();
-            var connectionString = " Server = localhost; Port = 5432; Database = merverapor; User Id = postgres; Password = 123456; ";
+            var connectionString = " Server = localhost; Port = 5432; Database = ReportDB; User Id = postgres; Password = 123456; ";
             builder.UseNpgsql(connectionString);
             return new AppDbContext(builder.Options);
         }

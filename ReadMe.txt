@@ -18,7 +18,7 @@ Person servis ayaða kalktýðýnda queue daki talepleri alarak rapor oluþturur ve r
 
 Servisler Kestrelde 5002 ve 5003 portundan ayaða kalkmaktadýr.Ports.txt dokümanýnda belirtilmiþtir.
 Projenin migration yapýsý code first olarak geliþtirilmiþ, person servis ayaða kalktýðýnda db oluþacaktýr.
-Db connection stringi servislerin appsettings.json dosyalarýndan okunmakta olup, ilgili bölümün tarafýnýzca düzenlenmesi gerekmektedir.
+Db connection stringi servislerin appsettings.json dosyalarýndan ve DesignTimeDbContextFactory class ýndan okunmakta olup, ilgili bölümün tarafýnýzca düzenlenmesi gerekmektedir.
 Ayrýca RabbitMQ cloud conn stringi yine appsettings.json dosyasýnda yer almaktadýr.
     
 
