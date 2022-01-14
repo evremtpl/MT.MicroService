@@ -5,7 +5,7 @@ MicroService lerin async iletiþimi üzerine olan proje,
 .Net Core 5.0 da geliþtirilmiþtir.
 PersonService ve ReportService olmak üzere 2 adet microservice bulunmaktadýr.
 Database olarak servislerde Postgres kullanýlmýþtýr. Db le iletiþime geçerken ORM araçlarýndan EntityFramework Core kullanýlmýþtýr.
-Proje talep üzerine development branchinde adým adým geliþtirilmiþ,commitlenmiþ, master branchine merge edilmiþtir.
+Proje development branchinde adým adým geliþtirilmiþ, commitlenmiþ, master branchine merge edilmiþtir.
 Servisler HTTP üzerinden iletiþim kurmaktadýr.
 Queue teknolojisinde MessageBroker olarak RabbitMQ kullanýlmýþtýr.
 Proje NLayerArchitecture olarak geliþtirilip, SOLID e uygun kodlama yapýlmýþtýr.
@@ -23,8 +23,7 @@ Db connection stringi servislerin appsettings.json dosyalarýndan ve DesignTimeDb
 Ayrýca RabbitMQ cloud conn stringi yine appsettings.json dosyasýnda yer almaktadýr.
     
 
-Projede bulunan endpointler aþaðýda verilmiþtir. Hata mekanizmasý için kod tekrarýný önlemek, temiz kod yazýmýný saðlamak adýna
-filterlar eklenilmesi gerektiðinin farkýnda olunup, süre kýsýtýndan dolayý eklenememiþtir.
+Projede bulunan endpointler aþaðýda verilmiþtir. Hata mekanizmasý için kod tekrarýný önlemek, temiz kod yazýmýný saðlamak adýna filterlar eklenilmesi gerektiðinin farkýnda olunup, süre kýsýtýndan dolayý eklenememiþtir.
 
 Servislerin güvenliði açýsýndan bir token mekanýzmasý (JWT) süre nedeniyle eklenememiþtir.
 Best practise ler not alýnýp, belirtilmiþtir.
