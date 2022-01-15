@@ -3,9 +3,7 @@ using MT.MicroService.Core.Services;
 using MT.MicroService.Core.UnitOfWork;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MT.MicroService.Service.Services
